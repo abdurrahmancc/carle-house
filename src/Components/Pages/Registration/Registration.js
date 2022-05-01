@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Registration.css";
 import {
@@ -28,16 +28,56 @@ const Registration = () => {
   const [generalError, setGeneralError] = useState("");
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const [displayName, setDisplayName] = useState("");
+  let navigate = useNavigate();
+  let location = useLocation();
 
+  console.log(displayName);
+  //handle OnBlur Email
+  const handleOnBlurEmail = (inputEmail) => {
+    console.log(inputEmail);
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail)) {
+      setEmail({ value: inputEmail, errors: "" });
+    } else {
+      setEmail({ value: "", errors: "Invalid email!" });
+    }
+  };
+
+  // handle OnBlur Password
+  const handleOnBlurPassword = (inputPassword) => {
+    console.log(inputPassword);
+    if (/(?=.*?[#?!@$%^&*-])/.test(inputPassword)) {
+      setPassword({ value: inputPassword, errors: "" });
+    } else {
+      setPassword({
+        value: "",
+        errors: "At least one special character",
+      });
+    }
+  };
+
+  // handle OnBlur confirm Password
+  const handleOnBlurConfirmPassowrd = (inputConfirmPassword) => {
+    console.log(inputConfirmPassword);
+    if (/(?=.*?[#?!@$%^&*-])/.test(inputConfirmPassword)) {
+      setConfirmPassword({ value: inputConfirmPassword, errors: "" });
+    } else {
+      setConfirmPassword({
+        value: "",
+        errors: "At least one special character",
+      });
+    }
+  };
+
+  // handle submit Form
   const submitForm = async (e) => {
     e.preventDefault();
-    const inputName = e.target.name.value;
+    /*     const inputName = e.target.name.value;
     const inputEmail = e.target.email.value;
     const inputPassword = e.target.password.value;
     const inputConfirmPassword = e.target.confirmPassword.value;
 
     setDisplayName(inputName);
-    console.log(displayName);
+
     //handle email
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail)) {
       setEmail({ value: inputEmail, errors: "" });
@@ -63,31 +103,38 @@ const Registration = () => {
         value: "",
         errors: "At least one special character",
       });
-    }
+    } */
 
+    //handle match password
     if (password.value !== confirmPassword.value) {
       setGeneralError("not match your password!");
-      console.log("not match your password!");
       return;
-    } else {
-      setGeneralError("");
     }
-    createUserEmail();
-  };
-  console.log(displayName);
 
-  const createUserEmail = async () => {
+    // createUserEmail();
     if (email.value && password.value) {
-      createUserWithEmailAndPassword(email.value, password.value);
-      await updateProfile(displayName);
+      await createUserWithEmailAndPassword(email.value, password.value);
+      await updateProfile({ displayName: displayName });
       toast.success("success", { id: "register-success" });
     }
   };
 
+  const createUserEmail = async () => {
+    /*     if (email.value && password.value) {
+      createUserWithEmailAndPassword(email.value, password.value);
+      await updateProfile({ displayName: displayName });
+      toast.success("success", { id: "register-success" });
+    } */
+  };
+
   if (loading || createLoading) {
-    // return <Loading></Loading>;
+    return <Loading></Loading>;
   }
 
+  const from = location.state?.from?.pathname || "/";
+  if (user) {
+    navigate(from, { replace: true });
+  }
   console.log(email.value);
   console.log(email.errors);
   console.log(password.value);
@@ -104,12 +151,24 @@ const Registration = () => {
           <Form onSubmit={submitForm} className=" py-3 ">
             <Form.Group className="mb-3">
               <Form.Label>Full Name</Form.Label>
-              <Form.Control className="" type="text" name="name" placeholder="Full Name" required />
+              <Form.Control
+                onBlur={(e) => setDisplayName(e.target.value)}
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" name="email" placeholder="Enter email" required />
+              <Form.Control
+                onBlur={(e) => handleOnBlurEmail(e.target.value)}
+                type="email"
+                name="email"
+                placeholder="Enter email"
+                required
+              />
               <span className="text-danger">{email.errors && email.errors}</span>
             </Form.Group>
 
@@ -121,6 +180,7 @@ const Registration = () => {
                 </span>
               </div>
               <Form.Control
+                onBlur={(e) => handleOnBlurPassword(e.target.value)}
                 type={showPass ? "password" : "text"}
                 name="password"
                 placeholder="Password"
@@ -140,6 +200,7 @@ const Registration = () => {
                 </span>
               </div>
               <Form.Control
+                onBlur={(e) => handleOnBlurConfirmPassowrd(e.target.value)}
                 type={showConfirmPass ? "password" : "text"}
                 name="confirmPassword"
                 placeholder="Confirm Password"

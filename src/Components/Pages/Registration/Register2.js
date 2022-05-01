@@ -7,6 +7,7 @@ import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../Hooks/FIrebase/Firebase";
 import toast from "react-hot-toast";
@@ -20,34 +21,41 @@ const Registers = () => {
     useCreateUserWithEmailAndPassword(auth);
   const [info, setInfo] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ emails: "", passwords: "", general: "" });
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [displayName, setDisplayName] = useState("");
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
     const inputName = e.target.name.value;
     const inputEmail = e.target.email.value;
     const inputPassword = e.target.password.value;
     const inputConfirmPassword = e.target.confirmPassword.value;
 
+    const localError = { emails: "", passwords: "", general: "" };
+    const localInfo = { email: "", password: "" };
+
     //handle email
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail)) {
-      setInfo({ ...info, email: inputEmail });
-      setErrors({ ...errors, emails: "" });
-      // console.log(inputEmail);
+      localInfo.email = inputEmail;
+      localError.emails = "";
     } else {
-      setErrors({ ...errors, emails: "Invalid email......." });
-      setInfo({ ...info, email: "" });
+      localInfo.email = "";
+      localError.emails = "invalid email";
     }
 
     //handle Password
     if (/(?=.*?[#?!@$%^&*-])/.test(inputPassword)) {
-      setInfo({ ...info, password: inputPassword });
-      setErrors({ ...errors, passwords: "" });
+      localInfo.password = inputPassword;
+      localError.password = "";
     } else {
-      setErrors({
-        ...errors,
-        passwords: "At least one special character......",
-      });
-      setInfo({ ...info, password: "" });
+      localInfo.password = "";
+      localError.password = "invalid password";
+    }
+    setInfo(localInfo);
+    setErrors(localError);
+    if (info.email && info.password) {
+      await createUserWithEmailAndPassword(info.email, info.password);
+      await updateProfile({ displayName: inputName });
     }
   };
 
@@ -55,6 +63,8 @@ const Registers = () => {
   console.log(errors.emails);
   console.log(info.password);
   console.log(errors.passwords);
+
+  console.log(user);
 
   return (
     <div style={{ minHeight: "80vh" }} className="container">

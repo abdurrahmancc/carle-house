@@ -44,7 +44,7 @@ const Header = () => {
                   onClick={() => signOut(auth)}
                   className="btn text-decoration-none text-black pt-0 border-top-0 fw-bold mx-2  pb-1 "
                 >
-                  Sign Out
+                  SIGN OUT
                 </span>
               ) : (
                 <NavLink

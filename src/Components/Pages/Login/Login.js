@@ -23,10 +23,9 @@ const Login = () => {
   const [signInWithEmailAndPassword, signUser, signLoading, signError] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
-  const [email, setEmail] = useState("");
-  const [password, setPassowrd] = useState("");
+  const [errors, setErrors] = useState("");
   const emailRef = useRef("");
-
+  const passwordRef = useRef("");
   let navigate = useNavigate();
   let location = useLocation();
 
@@ -39,17 +38,15 @@ const Login = () => {
   //handle submit form
   const handleForm = (e) => {
     e.preventDefault();
-    const inputEmail = e.target.email.value;
-    const inputPassword = e.target.password.value;
-    setEmail(inputEmail);
-    setPassowrd(inputPassword);
-    loginUser();
-  };
-
-  // login user
-  const loginUser = () => {
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
     signInWithEmailAndPassword(email, password);
   };
+
+  /*   if (signError?.message.includes("auth/user-not-found")) {
+    toast("Enter a valid email address");
+    setErrors("Enter a valid email address");
+  } */
 
   if (user) {
     navigate(from, { replace: true });
@@ -69,6 +66,9 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control ref={emailRef} name="email" type="email" placeholder="Enter email" />
+              {signError?.message.includes("auth/user-not-found") && (
+                <span className="text-danger">! Enter a valid email address</span>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3 " controlId="formBasicPassword">
@@ -81,11 +81,15 @@ const Login = () => {
               </div>
 
               <Form.Control
+                ref={passwordRef}
                 name="password"
                 type={showPass ? "password" : "text"}
                 placeholder="Password"
                 required
               />
+              {signError?.message.includes("auth/wrong-password") && (
+                <span className="text-danger">! wrong-password</span>
+              )}
             </Form.Group>
 
             <div className="d-flex justify-content-between">
