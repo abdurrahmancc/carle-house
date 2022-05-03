@@ -10,8 +10,10 @@ import NotFound from "./Components/Pages/NotFound/NotFound";
 import Footer from "./Components/Shared/Footer/Footer";
 import { Toaster } from "react-hot-toast";
 import Register2 from "./Components/Pages/Registration/Register2";
-import Loading from "./Components/Pages/Loading/Loading";
 import RequireAuth from "./Components/Shared/RequireAuth/RequireAuth";
+import Products from "./Components/Pages/Producsts/Products";
+import AllProducts from "./Components/Pages/AllProducts/AllProducts";
+import AddProducts from "./Components/Pages/AddProducts/AddProducts";
 
 function App() {
   return (
@@ -21,7 +23,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        {/* <Route path="/services" element={<Services></Services>}></Route> */}
+        <Route path="/products" element={<Products></Products>}></Route>
+        <Route path="/addproducts" element={<AddProducts></AddProducts>}></Route>
         <Route
           path="/services"
           element={
@@ -33,7 +36,6 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/register" element={<Register2></Register2>}></Route>
-        {/* <Route path="/loading" element={<Loading></Loading>}></Route> */}
         {/* <Route path="/" element={}></Route> */}
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

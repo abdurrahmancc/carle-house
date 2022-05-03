@@ -1,3 +1,9 @@
 a{
     text-decoration: none;
 }
+.zIndex{
+    z-index: 6;
+}
+.hoverCursor:hover{
+    cursor: pointer;
+}

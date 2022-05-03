@@ -1,0 +1,30 @@
+.sideBer-bg{
+    background-color: rgb(14,7,48);
+    box-shadow: 10px 0px 20px 0px  rgb(60, 48, 154);
+    z-index: 2;
+}
+.dashBordBody{
+    background-color: rgb(43,31,108);
+    /* box-shadow:  0 0px 0px rgb(169, 169, 196);; */
+    /* margin-left: 2px; */
+}
+.iconPlus{
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.table-bg{
+    background-color: rgb(26,19,78);
+    border-radius: 10px;
+}
+
+.tableROw:hover{
+    background-color: rgba(43, 31, 108, 0.826);
+    color: orange;
+    font-weight: 700;
+}
+
+.removeProduct span:hover{
+    color: red;
+    cursor: pointer;
+}

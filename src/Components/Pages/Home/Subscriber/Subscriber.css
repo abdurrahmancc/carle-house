@@ -1,0 +1,35 @@
+.subscriber-img{
+    background-image: url(http://tk-themes.net/html-pearle/carle/images/background/bg_subscribe.jpg);
+    background-repeat: no-repeat;
+    height: 300px;
+    background-size: cover;
+    /* width: 100vw; */
+    
+}
+.input-width{
+    min-width: 500px;
+}
+.btn-color{
+    background-color: #011e9e;
+}
+.blue-color{
+    color: #011e9e;
+}
+@media screen and (min-width: 600px)and (max-width: 800px) {
+    .input-width{
+        min-width: 350px;
+    }
+    
+  }
+@media screen and (min-width: 500px)and (max-width: 599px) {
+    .input-width{
+        min-width: 250px;
+    }
+    
+  }
+@media screen and (max-width: 499px) {
+    .input-width{
+        min-width: 200px;
+    }
+    
+  }

@@ -11,7 +11,7 @@ const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" className="zIndex" expand="lg">
         <Container>
           <NavLink to={"/home"}>
             <img src={logo} alt="" />
@@ -28,6 +28,26 @@ const Header = () => {
                 }
               >
                 HOME
+              </NavLink>
+              <NavLink
+                to={"/products"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary fw-bold mx-2 text-decoration-none pb-1 border-2 border-bottom border-primary"
+                    : " text-black fw-bold mx-2 text-decoration-none"
+                }
+              >
+                PRODUCTS
+              </NavLink>
+              <NavLink
+                to={"/addproducts"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary fw-bold mx-2 text-decoration-none pb-1 border-2 border-bottom border-primary"
+                    : " text-black fw-bold mx-2 text-decoration-none"
+                }
+              >
+                ADD
               </NavLink>
               <NavLink
                 to={"/services"}
