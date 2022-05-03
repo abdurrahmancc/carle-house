@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./OurProducts.css";
 
 const OurProducts = () => {
@@ -13,8 +14,8 @@ const OurProducts = () => {
   console.log(products);
   return (
     <div className="my-5 container">
-      <h2 className="text-center mb-3 fw-bold  underline">
-        OUR <span className="orangeColor">PRODUCTS</span>{" "}
+      <h2 className="text-center mb-3 fw-bold blue-color text-decoration-underline">
+        OUR <span className="orangeColor text-decoration-underline">PRODUCTS</span>{" "}
       </h2>
       <div>
         <div className="row row-cols-1 productsItem mx-auto row-cols-lg-3 row-cols-sm-2 g-4">
@@ -35,9 +36,12 @@ const OurProducts = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <span>Supplier: {product?.supplierName}</span>
-                      <button className="btn-color border-0 text-white rounded-1 px-2 py-1">
+                      <Link
+                        to={"/inventory/" + product._id}
+                        className="btn-color text-decoration-none border-0 text-white rounded-1 px-2 py-1"
+                      >
                         Update
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

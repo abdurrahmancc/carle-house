@@ -14,6 +14,7 @@ import RequireAuth from "./Components/Shared/RequireAuth/RequireAuth";
 import Products from "./Components/Pages/Producsts/Products";
 import AllProducts from "./Components/Pages/AllProducts/AllProducts";
 import AddProducts from "./Components/Pages/AddProducts/AddProducts";
+import Inventory from "./Components/Pages/Inventory/Inventory";
 
 function App() {
   return (
@@ -24,7 +25,22 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/products" element={<Products></Products>}></Route>
-        <Route path="/addproducts" element={<AddProducts></AddProducts>}></Route>
+        <Route
+          path="/inventory/:id"
+          element={
+            <RequireAuth>
+              <Inventory></Inventory>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/addproducts"
+          element={
+            <RequireAuth>
+              <AddProducts></AddProducts>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/services"
           element={

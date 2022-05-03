@@ -21,8 +21,8 @@ import { Pagination } from "swiper";
 const Reviews = () => {
   return (
     <div className="mb-5 mx-5">
-      <h4 className="text-center fs-2 mb-3 fw-bold  underline">
-        CLIENTS <span className="orangeColor">REVIEWS</span>
+      <h4 className="text-center text-decoration-underline fs-2 mb-3 blue-color fw-bold  underline">
+        CLIENT <span className="orangeColor text-decoration-underline">REVIEW</span>
       </h4>
       <div>
         <Swiper
@@ -35,7 +35,7 @@ const Reviews = () => {
         >
           <SwiperSlide className="pb-5 text-center">
             {" "}
-            <div className="row g-5 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
+            <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
               <div className="col">
                 <div className="card shadow mx-auto w-100 h-100">
                   <img src={man_1} className="img-size" alt="..." />
@@ -78,7 +78,7 @@ const Reviews = () => {
           </SwiperSlide>
           <SwiperSlide className="pb-5 text-center">
             {" "}
-            <div className="row g-5 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
+            <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
               <div className="col">
                 <div className="card shadow mx-auto w-100 h-100">
                   <img src={man_4} className="img-size" alt="..." />
@@ -119,7 +119,7 @@ const Reviews = () => {
           </SwiperSlide>
           <SwiperSlide className="pb-5 text-center">
             {" "}
-            <div className="row g-5 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
+            <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
               <div className="col">
                 <div className="card shadow  mx-auto w-100 h-100">
                   <img src={man_7} className="img-size" alt="..." />
