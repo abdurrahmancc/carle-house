@@ -1,3 +1,23 @@
+# CARLE HOUSE
+This site is about car warehouses. Here the amazing header footer login page is beautifully designed. It has done the work of back end, authentication.
+<li>amazing home page</li>
+<li>amazing login page</li>
+<li>authentication</li>
+<li>add product section to DB</li>
+<li>amazing Footer</li>
+<li>amazing banner</li>
+<li>404 page</li>
+ live link: [Carle house ] (https://carle-warehouse.firebaseapp.com/)
+
+#The libraries and frameworks that I used to do this project:
+<li>BootsTrap</li>
+<li>React</li>
+<li>react-hot-toast</li>
+<li>Firebase for authentication</li>
+<li>Node for backEnd</li>
+<li>MongoDB for Database</li>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

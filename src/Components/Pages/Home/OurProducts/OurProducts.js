@@ -26,9 +26,16 @@ const OurProducts = () => {
                   <img src={product?.img} className="productsImg" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
-                    <strong>
-                      price: <span className="orangeColor ">${product.price}</span>
-                    </strong>
+                    <div className="d-flex justify-content-between">
+                      <p>
+                        <strong>
+                          price: <span className="orangeColor ">${product.price}</span>
+                        </strong>
+                      </p>
+                      <p>
+                        <strong>quantity: {product.quantity}</strong>
+                      </p>
+                    </div>
                     <p className="card-text">
                       {product?.description.length >= 65
                         ? `${product?.description.slice(0, 65)}...`
