@@ -16,6 +16,7 @@ import AllProducts from "./Components/Pages/AllProducts/AllProducts";
 import AddProducts from "./Components/Pages/AddProducts/AddProducts";
 import Inventory from "./Components/Pages/Inventory/Inventory";
 import Blog from "./Components/Pages/Blog/Blog";
+import MyItem from "./Components/Pages/MyItem/MyItem";
 
 function App() {
   return (
@@ -46,6 +47,14 @@ function App() {
           element={
             <RequireAuth>
               <AddProducts></AddProducts>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/myitem"
+          element={
+            <RequireAuth>
+              <MyItem></MyItem>
             </RequireAuth>
           }
         ></Route>

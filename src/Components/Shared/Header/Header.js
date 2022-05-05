@@ -22,7 +22,7 @@ const Header = () => {
             : { display: "block" }
         }
         bg="light"
-        className="zIndex"
+        className="zIndex py-3"
         expand="lg"
       >
         <Container>
@@ -51,6 +51,16 @@ const Header = () => {
                 }
               >
                 PRODUCTS
+              </NavLink>
+              <NavLink
+                to={"/myitem"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary fw-bold mx-2 text-decoration-none pb-1 border-2 border-bottom border-primary"
+                    : " text-black fw-bold mx-2 text-decoration-none"
+                }
+              >
+                ITEM
               </NavLink>
               <NavLink
                 to={"/addproducts"}

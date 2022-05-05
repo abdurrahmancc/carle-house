@@ -25,42 +25,43 @@ const OurProducts = () => {
       </h2>
       <div>
         <div className="row row-cols-1 productsItem mx-auto row-cols-lg-3 row-cols-sm-2 g-4">
-          {products.map((product) => {
-            return (
-              <div key={product._id} className="col ">
-                <div style={{ width: "17rem" }} className="card rounded-Card shadow-sm ">
-                  <img src={product?.img} className="productsImg" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <div className="d-flex justify-content-between">
-                      <p>
-                        <strong>
-                          price: <span className="orangeColor ">${product.price}</span>
-                        </strong>
+          {products &&
+            products.map((product) => {
+              return (
+                <div key={product._id} className="col ">
+                  <div style={{ width: "17rem" }} className="card rounded-Card shadow-sm ">
+                    <img src={product?.img} className="productsImg" alt="..." />
+                    <div className="card-body">
+                      <h5 className="card-title">{product.name}</h5>
+                      <div className="d-flex justify-content-between">
+                        <p>
+                          <strong>
+                            price: <span className="orangeColor ">${product.price}</span>
+                          </strong>
+                        </p>
+                        <p>
+                          <strong>quantity: {product.quantity}</strong>
+                        </p>
+                      </div>
+                      <p className="card-text">
+                        {product?.description.length >= 65
+                          ? `${product?.description?.slice(0, 65)}...`
+                          : product?.description}
                       </p>
-                      <p>
-                        <strong>quantity: {product.quantity}</strong>
-                      </p>
-                    </div>
-                    <p className="card-text">
-                      {product?.description.length >= 65
-                        ? `${product?.description?.slice(0, 65)}...`
-                        : product?.description}
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <span>Supplier: {product?.supplierName}</span>
-                      <Link
-                        to={"/inventory/" + product._id}
-                        className="btn-color text-decoration-none border-0 text-white rounded-1 px-3 py-2"
-                      >
-                        Update
-                      </Link>
+                      <div className="d-flex justify-content-between">
+                        <span>Supplier: {product?.supplierName}</span>
+                        <Link
+                          to={"/inventory/" + product._id}
+                          className="btn-color text-decoration-none border-0 text-white rounded-1 px-3 py-2"
+                        >
+                          Update
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
       <div className="text-center mt-5">

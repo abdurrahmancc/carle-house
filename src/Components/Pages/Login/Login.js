@@ -15,6 +15,7 @@ import {
 import auth from "../../Hooks/FIrebase/Firebase";
 import toast from "react-hot-toast";
 import Loading from "../Loading/Loading";
+import axios from "axios";
 // import { updatePassword } from "firebase/auth";
 
 const Login = () => {
@@ -37,20 +38,19 @@ const Login = () => {
   }
 
   //handle submit form
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.token);
+    navigate(from, { replace: true });
+    console.log(data.token);
   };
 
-  /*   if (signError?.message.includes("auth/user-not-found")) {
-    toast("Enter a valid email address");
-    setErrors("Enter a valid email address");
-  } */
-
   if (user) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
 
   const handleResetPassword = async () => {

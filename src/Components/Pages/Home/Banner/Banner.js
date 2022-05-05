@@ -9,7 +9,7 @@ const Banner = () => {
     <div>
       <Carousel>
         <Carousel.Item interval={500000}>
-          <img className="d-block w-100" src={img1} alt="First slide" />
+          <img style={{ height: "100vh" }} className="d-block w-100" src={img1} alt="First slide" />
           <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5">
             <p className="bg-transparents bannerText-1 px-4 py-3 fw-bold mb-md-4">
               EVERYONE WILL ENVY YOUR!
@@ -20,7 +20,7 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500000}>
-          <img className="d-block w-100" src={img2} alt="Third slide" />
+          <img style={{ height: "100vh" }} className="d-block w-100" src={img2} alt="Third slide" />
           <Carousel.Caption>
             <div className="mb-5">
               <h3 className="primaryColor fs-1 px-4 py-3 fw-bold mb-md-3">

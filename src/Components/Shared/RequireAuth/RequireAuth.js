@@ -20,7 +20,7 @@ const RequireAuth = ({ children }) => {
   if (user?.providerData[0]?.providerId == "password" && !user?.emailVerified) {
     return <EmailVerification></EmailVerification>;
   }
-  console.log(user);
+  // console.log(user);
 
   return children;
 };

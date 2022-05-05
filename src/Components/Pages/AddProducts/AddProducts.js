@@ -41,14 +41,22 @@ const AddProducts = () => {
         <div style={{ height: "100vh" }} className="col-md-2 sideBer-bg sticky-top">
           <div className="ms-4 mt-5">
             <p className="text-white fs-5 hoverCursor w-100 mx-auto">
-              All Products {products.length}
+              <Link
+                to={"/products"}
+                className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
+              >
+                All Products {products.length}
+              </Link>
             </p>
-            <Link
-              to={"/products"}
-              className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
-            >
-              All Products
-            </Link>
+
+            <p className="text-white fs-5 hoverCursor w-100 mx-auto">
+              <Link
+                to={"/myitem"}
+                className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
+              >
+                My Products
+              </Link>
+            </p>
           </div>
         </div>
         <div className="col-md-10 dashBordBody">

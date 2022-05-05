@@ -12,6 +12,7 @@ const Products = () => {
     (async () => {
       const result = await axios.get("https://floating-wildwood-16493.herokuapp.com/products");
       setProducts(result?.data);
+      console.log(result?.data);
     })();
   }, [products]);
 
@@ -33,6 +34,14 @@ const Products = () => {
           <div className="ms-4 mt-5">
             <p className="text-white fs-5 hoverCursor w-100 mx-auto">
               All Products {products.length}
+            </p>
+            <p className="text-white fs-5 hoverCursor w-100 mx-auto">
+              <Link
+                to={"/myitem"}
+                className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
+              >
+                My Products
+              </Link>
             </p>
             <Link
               to={"/addproducts"}
