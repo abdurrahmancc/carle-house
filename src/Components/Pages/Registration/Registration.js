@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 import { sendEmailVerification } from "firebase/auth";
 import Loading from "../Loading/Loading";
 import { async } from "@firebase/util";
+import logo from "../../../img/logo-3.png";
 
 const Registration = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -28,6 +29,7 @@ const Registration = () => {
   const [generalError, setGeneralError] = useState("");
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const [displayName, setDisplayName] = useState("");
+
   let navigate = useNavigate();
   let location = useLocation();
 
@@ -144,86 +146,110 @@ const Registration = () => {
   console.log(user);
 
   return (
-    <div style={{ minHeight: "80vh" }} className="container">
-      <div className="login-body py-5 my-5 mx-auto bg-white">
-        <div className="w-75  mx-auto">
-          <h3 className="text-center">Please Registration</h3>
-          <Form onSubmit={submitForm} className=" py-3 ">
-            <Form.Group className="mb-3">
-              <Form.Label>Full Name</Form.Label>
-              <Form.Control
-                onBlur={(e) => setDisplayName(e.target.value)}
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                required
-              />
-            </Form.Group>
+    <div style={{ minHeight: "100vh" }} className=" pt-4 register-bg ">
+      <div className="text-center ">
+        <Link to={"/"} className=" ">
+          <img src={logo} alt="" />
+        </Link>
+      </div>
+      <div className="pb-5">
+        <div className="login-body py-3 mt-3 mx-auto bg-white">
+          <div className="w-75  mx-auto">
+            <h3 className="text-center loginColor">Please Registration</h3>
+            <Form onSubmit={submitForm} className=" pb-3 ">
+              <Form.Group className="mb-2">
+                <Form.Label className="mb-0">Full Name</Form.Label>
+                <Form.Control
+                  onBlur={(e) => setDisplayName(e.target.value)}
+                  type="text"
+                  name="name"
+                  className="inputFieldBorder"
+                  placeholder="Full Name"
+                  required
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                onBlur={(e) => handleOnBlurEmail(e.target.value)}
-                type="email"
-                name="email"
-                placeholder="Enter email"
-                required
-              />
-              <span className="text-danger">{email.errors && email.errors}</span>
-            </Form.Group>
+              <Form.Group className="mb-2" controlId="formBasicEmail">
+                <Form.Label className="mb-0">Email address</Form.Label>
+                <Form.Control
+                  onBlur={(e) => handleOnBlurEmail(e.target.value)}
+                  type="email"
+                  name="email"
+                  className="inputFieldBorder"
+                  placeholder="Enter email"
+                  required
+                />
+                <span className="text-danger">{email.errors && email.errors}</span>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <div className="position-relative">
-                <span className="show-btn position-absolute" onClick={() => setPass(!showPass)}>
-                  {showPass ? <FaEye /> : <FaEyeSlash />}
+              <Form.Group className="mb-2">
+                <Form.Label className="mb-0">Password</Form.Label>
+                <div className="position-relative">
+                  <span
+                    className="show-btn position-absolute loginColor"
+                    onClick={() => setPass(!showPass)}
+                  >
+                    {showPass ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+                </div>
+                <Form.Control
+                  onBlur={(e) => handleOnBlurPassword(e.target.value)}
+                  type={showPass ? "text" : "password"}
+                  name="password"
+                  className="inputFieldBorder"
+                  placeholder="Password"
+                  required
+                />
+                <span className="text-danger">{password.errors && password.errors}</span>
+              </Form.Group>
+
+              <Form.Group className="mb-2">
+                <Form.Label className="mb-0">Confirm Password</Form.Label>
+                <div className="position-relative">
+                  <span
+                    className="show-btn position-absolute loginColor"
+                    onClick={() => setConfirmPass(!showConfirmPass)}
+                  >
+                    {showConfirmPass ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+                </div>
+                <Form.Control
+                  onBlur={(e) => handleOnBlurConfirmPassowrd(e.target.value)}
+                  type={showConfirmPass ? "text" : "password"}
+                  name="confirmPassword"
+                  className="inputFieldBorder"
+                  placeholder="Confirm Password"
+                  required
+                />
+                <span className="text-danger">
+                  {confirmPassword?.errors ? confirmPassword.errors : generalError && generalError}
                 </span>
-              </div>
-              <Form.Control
-                onBlur={(e) => handleOnBlurPassword(e.target.value)}
-                type={showPass ? "password" : "text"}
-                name="password"
-                placeholder="Password"
-                required
-              />
-              <span className="text-danger">{password.errors && password.errors}</span>
-            </Form.Group>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Confirm Password</Form.Label>
-              <div className="position-relative">
-                <span
-                  className="show-btn position-absolute"
-                  onClick={() => setConfirmPass(!showConfirmPass)}
-                >
-                  {showConfirmPass ? <FaEye /> : <FaEyeSlash />}
-                </span>
-              </div>
-              <Form.Control
-                onBlur={(e) => handleOnBlurConfirmPassowrd(e.target.value)}
-                type={showConfirmPass ? "password" : "text"}
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                required
-              />
-              <span className="text-danger">
-                {confirmPassword?.errors ? confirmPassword.errors : generalError && generalError}
-              </span>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check onClick={() => setAgree(!agree)} type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button disabled={!agree} className="px-4" variant="primary" type="submit">
-              Registration
-            </Button>
-          </Form>
-
+              <Form.Group className="mb-2" controlId="formBasicCheckbox">
+                <Form.Check
+                  onClick={() => setAgree(!agree)}
+                  type="checkbox"
+                  className="loginColor"
+                  label="Accept Terms & Condition"
+                />
+              </Form.Group>
+              <button
+                disabled={!agree}
+                className=" w-100 border-0 text-white mb-2 mt-2 px-5 submitBtn"
+                variant="primary"
+                type="submit"
+              >
+                Registration
+              </button>
+            </Form>
+          </div>
           <div>
-            <p>
+            <hr className="w-100" />
+            <p className="text-center signUp-fontSize">
               Already have an account?
-              <Link className="text-decoration-none ps-1" to={"/login"}>
-                Please Login
+              <Link className=" loginColor ps-1" to={"/login"}>
+                Log In
               </Link>
             </p>
           </div>

@@ -1,6 +1,6 @@
 .login-body{
-    max-width: 500px;
-    
+    max-width: 430px;
+    border-radius: 10px;
 }
 hr{
     width: 45%;
@@ -8,3 +8,43 @@ hr{
 .btn-style-none{
     
 }
+.loginPage{
+    background-color: rgb(88,68,143);
+}
+.loginColor{
+    color: rgb(88,68,143);
+}
+.inputFieldBorder{
+    /* border-color: rgb(88,68,143) !important; */
+    border: 1px solid rgba(88, 68, 143, 0.449) !important;
+}
+.userIcon{
+    position: relative;
+    top: 37px;
+    left: -85px;
+    width:30px;
+    padding-right: 10px;
+    border-right: 1px solid rgba(88, 68, 143, 0.253);
+}
+.faLock{
+    position: relative;
+    width:30px;
+    top: 37px;
+    left: -57px;
+    padding-right: 10px;
+    border-right: 1px solid rgba(88, 68, 143, 0.253);
+}
+.submitBtn{
+    
+    background-image: linear-gradient(to right, #62467E , #84508C);
+    border-radius: 5px;
+    padding: 8px 0px;
+    font-size: 20px;
+}
+.forgetPassword{
+    max-width: 430px;
+}
+.signUp-fontSize{
+    font-size: 19px;
+}
+

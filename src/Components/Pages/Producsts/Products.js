@@ -3,6 +3,7 @@ import "./Products.css";
 import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import { async } from "@firebase/util";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -10,28 +11,11 @@ const Products = () => {
   useEffect(() => {
     (async () => {
       const result = await axios.get("https://floating-wildwood-16493.herokuapp.com/products");
-      // const result = await axios.get("http://localhost:5000/products");
       setProducts(result?.data);
     })();
   }, [products]);
 
-  /*   const handleDelete = (_id) => {
-    console.log(_id);
-    const proceed = window.confirm("Are you sure want to delete?");
-    if (proceed) {
-      console.log(_id);
-      const url = `http://localhost:5000/product/${_id}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          const remaining = products.filter((proceed) => products._id !== _id);
-          setProducts(remaining);
-        });
-    }
-  }; */
+  //handle Delete
   const handleDelete = async (_id) => {
     console.log(_id);
     const proceed = window.confirm("Are you sure want to delete?");
@@ -45,14 +29,17 @@ const Products = () => {
   return (
     <div>
       <div className="row">
-        <div style={{ height: "100vh" }} className="col-md-2 sideBer-bg">
+        <div style={{ height: "100vh" }} className="col-md-2 sticky-top sideBer-bg">
           <div className="ms-4 mt-5">
             <p className="text-white fs-5 hoverCursor w-100 mx-auto">
               All Products {products.length}
             </p>
-            <p className="text-white fs-5 hoverCursor w-100 mx-auto">
+            <Link
+              to={"/addproducts"}
+              className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
+            >
               <FaPlus className="iconPlus"></FaPlus> Add Products
-            </p>
+            </Link>
           </div>
         </div>
         <div className="col-md-10 dashBordBody">
@@ -63,6 +50,7 @@ const Products = () => {
                   <th className="pt-4 ps-4" scope="col">
                     Name
                   </th>
+                  <th scope="col">Supplier</th>
                   <th scope="col">Price</th>
                   <th className="text-center" scope="col">
                     Img
@@ -79,7 +67,9 @@ const Products = () => {
                       <th style={{ maxWidth: "100px" }} className="ps-4" scope="row">
                         {product?.name}
                       </th>
+                      <td>{product?.supplierName}</td>
                       <td>{product?.price}</td>
+
                       <td className="text-center">
                         <img style={{ width: "50px" }} src={product?.img} />
                       </td>

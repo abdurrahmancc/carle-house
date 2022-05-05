@@ -1,9 +1,15 @@
 .responsive-img{
-    min-height: 470px;
-    max-height: 500px;
+    min-height: 530px;
     width: 500px;
     object-fit: cover;
 }
 .deliver-btn:hover{
-    color: orange;
+    color: blue;
+ 
+}
+.bg-img{
+    min-height: 530px;
+    width: 500px;
+    object-fit: cover;
+    background-image: url(https://www.alro-group.com/wp-content/uploads/2014/12/placeholder.jpg);
 }

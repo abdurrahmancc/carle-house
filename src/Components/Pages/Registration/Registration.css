@@ -7,3 +7,9 @@
 .input-field{
     background-color: rgb(97, 145, 227);
 }
+.register-bg{
+    background-image: url(https://i.ibb.co/K0Fzk36/register-bg.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: rgb(58,39,120);
+}

@@ -2,16 +2,29 @@ import React from "react";
 import logo from "../../../img/logo1.png";
 import "./Header.css";
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import auth from "../../Hooks/FIrebase/Firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
+  const { pathname } = useLocation();
+
   return (
     <>
-      <Navbar bg="light" className="zIndex" expand="lg">
+      <Navbar
+        style={
+          pathname.includes("login")
+            ? { display: "none" }
+            : pathname.includes("registration")
+            ? { display: "none" }
+            : { display: "block" }
+        }
+        bg="light"
+        className="zIndex"
+        expand="lg"
+      >
         <Container>
           <NavLink to={"/home"}>
             <img src={logo} alt="" />
@@ -50,14 +63,14 @@ const Header = () => {
                 ADD
               </NavLink>
               <NavLink
-                to={"/services"}
+                to={"/blog"}
                 className={({ isActive }) =>
                   isActive
                     ? "text-primary fw-bold mx-2 text-decoration-none pb-1 border-2 border-bottom border-primary"
                     : " text-black fw-bold mx-2 text-decoration-none"
                 }
               >
-                SERVICES
+                BLOG
               </NavLink>
               {user ? (
                 <span

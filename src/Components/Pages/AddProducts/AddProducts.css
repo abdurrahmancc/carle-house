@@ -1,0 +1,9 @@
+.submitProduct{
+    background-image: linear-gradient(to right, #3A2778 , #7138aae7);
+    border-radius: 5px;
+    padding: 8px 0px;
+    font-size: 20px;
+}
+.registerTextColor{
+    color: #7138aae7;
+}

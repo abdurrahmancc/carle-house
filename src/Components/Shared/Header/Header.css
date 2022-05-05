@@ -3,6 +3,7 @@ a{
 }
 .zIndex{
     z-index: 6;
+    
 }
 .hoverCursor:hover{
     cursor: pointer;

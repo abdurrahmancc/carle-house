@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./Components/Shared/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
-import Services from "./Components/Pages/Services/Services";
+import Services from "./Components/Pages/Blog/Blog";
 import Login from "./Components/Pages/Login/Login";
 import Registration from "./Components/Pages/Registration/Registration";
 import NotFound from "./Components/Pages/NotFound/NotFound";
@@ -15,6 +15,7 @@ import Products from "./Components/Pages/Producsts/Products";
 import AllProducts from "./Components/Pages/AllProducts/AllProducts";
 import AddProducts from "./Components/Pages/AddProducts/AddProducts";
 import Inventory from "./Components/Pages/Inventory/Inventory";
+import Blog from "./Components/Pages/Blog/Blog";
 
 function App() {
   return (
@@ -24,7 +25,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/products" element={<Products></Products>}></Route>
+        <Route
+          path="/products"
+          element={
+            <RequireAuth>
+              <Products></Products>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/inventory/:id"
           element={
@@ -41,14 +49,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route
-          path="/services"
-          element={
-            <RequireAuth>
-              <Services></Services>
-            </RequireAuth>
-          }
-        ></Route>
+        <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/register" element={<Register2></Register2>}></Route>

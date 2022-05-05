@@ -11,7 +11,7 @@ const Subscriber = () => {
             <div className="d-flex">
               <input
                 type="text"
-                class="form-control py-3 px-2 text-center border-0 rounded-0 input-width"
+                className="form-control py-3 px-2 text-center border-0 rounded-0 input-width"
                 id="exampleInputEmail1"
                 placeholder="Enter your email here"
               ></input>

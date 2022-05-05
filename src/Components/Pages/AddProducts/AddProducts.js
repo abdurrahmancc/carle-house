@@ -1,14 +1,28 @@
 import { async } from "@firebase/util";
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FaPlus, FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import "./AddProducts.css";
 
 const AddProducts = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await axios.get("https://floating-wildwood-16493.herokuapp.com/products");
+      setProducts(result?.data);
+    })();
+  }, [products]);
+
+  //handle submit Form
   const submitForm = async (e) => {
     e.preventDefault();
     const product = {
       name: e.target.name.value,
       email: e.target.email.value,
       price: e.target.price.value,
+      quantity: e.target.quantity.value,
       img: e.target.img.value,
       description: e.target.description.value,
       supplierName: e.target.supplierName.value,
@@ -22,89 +36,132 @@ const AddProducts = () => {
     e.target.reset();
   };
   return (
-    <div style={{ minHeight: "90vh" }} className="container mt-5">
-      <div className=" mx-auto w-50">
-        <div className="bg-white p-5">
-          <h3 className="text-center pb-2">Add Your Products</h3>
-          <form onSubmit={submitForm}>
-            <div className="mb-3">
-              <label htmlFor="productsName" className="form-label">
-                Products Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder=" Product Name"
-                className="form-control"
-                id="productsName"
-                aria-describedby="emailHelp"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="text"
-                name="email"
-                placeholder=" Email"
-                className="form-control"
-                id="email"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="productsPrice" className="form-label">
-                Products Price
-              </label>
-              <input
-                type="text"
-                name="price"
-                placeholder=" Product price"
-                className="form-control"
-                id="productsPrice"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="ProductsURL" className="form-label">
-                Products URL
-              </label>
-              <input
-                type="text"
-                name="img"
-                className="form-control"
-                placeholder=" Product Image URL"
-                id="ProductsURL"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="description" className="form-label">
-                Description
-              </label>
-              <input
-                type="text"
-                name="description"
-                className="form-control"
-                placeholder=" Description"
-                id="description"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="supplierName" className="form-label">
-                Supplier Name
-              </label>
-              <input
-                type="text"
-                name="supplierName"
-                className="form-control"
-                placeholder=" Supplier Name"
-                id="supplierName"
-              />
-            </div>
+    <div>
+      <div style={{ zIndex: 0 }} className="row">
+        <div style={{ height: "100vh" }} className="col-md-2 sideBer-bg sticky-top">
+          <div className="ms-4 mt-5">
+            <p className="text-white fs-5 hoverCursor w-100 mx-auto">
+              All Products {products.length}
+            </p>
+            <Link
+              to={"/products"}
+              className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
+            >
+              All Products
+            </Link>
+          </div>
+        </div>
+        <div className="col-md-10 dashBordBody">
+          <div className="p-5">
+            <div style={{ minHeight: "90vh" }} className="container  mb-5">
+              <div className=" mx-auto w-50">
+                <div className="bg-white p-5">
+                  <h3 className="text-center registerTextColor pb-2 fw-bold">ADD YOUR PRODUCT</h3>
+                  <form onSubmit={submitForm}>
+                    <div className="mb-2">
+                      <label htmlFor="productsName " className="form-label mb-0">
+                        Products Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder=" Product Name"
+                        className="form-control inputFieldBorder"
+                        id="productsName"
+                        aria-describedby="emailHelp"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="email" className="form-label mb-0">
+                        Email
+                      </label>
+                      <input
+                        type="text"
+                        name="email"
+                        placeholder=" Email"
+                        className="form-control inputFieldBorder"
+                        id="email"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="productsPrice" className="form-label mb-0">
+                        Products Price
+                      </label>
+                      <input
+                        type="text"
+                        name="price"
+                        placeholder=" Product price"
+                        className="form-control inputFieldBorder"
+                        id="productsPrice"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="productQuantity" className="form-label mb-0">
+                        Quantity
+                      </label>
+                      <input
+                        type="text"
+                        name="quantity"
+                        placeholder=" Quantity"
+                        className="form-control inputFieldBorder"
+                        id="productQuantity"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="ProductsURL" className="form-label mb-0">
+                        Products URL
+                      </label>
+                      <input
+                        type="text"
+                        name="img"
+                        className="form-control inputFieldBorder"
+                        placeholder=" Product Image URL"
+                        id="ProductsURL"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="description" className="form-label mb-0">
+                        Description
+                      </label>
+                      <input
+                        type="text"
+                        name="description"
+                        className="form-control inputFieldBorder"
+                        placeholder=" Description"
+                        id="description"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="supplierName" className="form-label mb-0">
+                        Supplier Name
+                      </label>
+                      <input
+                        type="text"
+                        name="supplierName"
+                        className="form-control inputFieldBorder"
+                        placeholder=" Supplier Name"
+                        id="supplierName"
+                        required
+                      />
+                    </div>
 
-            <button type="submit" className="btn w-100 btn-primary">
-              Submit
-            </button>
-          </form>
+                    <button
+                      type="submit"
+                      className=" w-100 submitProduct text-decoration-none border-0 text-white rounded-1  py-2 "
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
