@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./MyItem.css";
 import toast from "react-hot-toast";
 import { signOut } from "firebase/auth";
-import axiosPrivet from "../../Hooks/Api";
 
 const MyItem = () => {
   const [user, loading, error] = useState(auth);
@@ -17,11 +16,13 @@ const MyItem = () => {
     (async () => {
       const email = user.currentUser.email;
 
-      // const url = `https://floating-wildwood-16493.herokuapp.com/myitem?email=${email}`;
-
       try {
-        const url = `http://localhost:5000/myitem?email=${email}`;
-        const result = await axiosPrivet.get(url);
+        const url = `https://floating-wildwood-16493.herokuapp.com/myitem?email=${email}`;
+        const result = await axios.get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        });
         setItems(result.data);
       } catch (error) {
         console.log(error.response.status);

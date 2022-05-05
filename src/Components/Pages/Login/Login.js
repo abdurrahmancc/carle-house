@@ -43,7 +43,9 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post("http://localhost:5000/login", { email });
+    const { data } = await axios.post("https://floating-wildwood-16493.herokuapp.com/login", {
+      email,
+    });
     localStorage.setItem("accessToken", data.token);
     navigate(from, { replace: true });
     console.log(data.token);
