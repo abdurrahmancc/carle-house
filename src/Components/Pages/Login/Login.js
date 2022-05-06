@@ -16,6 +16,7 @@ import auth from "../../Hooks/FIrebase/Firebase";
 import toast from "react-hot-toast";
 import Loading from "../Loading/Loading";
 import axios from "axios";
+import useToken from "../../Hooks/UseToken";
 // import { updatePassword } from "firebase/auth";
 
 const Login = () => {
@@ -28,8 +29,9 @@ const Login = () => {
   const [errors, setErrors] = useState("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
-  let navigate = useNavigate();
-  let location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [token] = useToken(user);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -43,16 +45,10 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post("https://floating-wildwood-16493.herokuapp.com/login", {
-      email,
-    });
-    localStorage.setItem("accessToken", data.token);
-    navigate(from, { replace: true });
-    console.log(data.token);
   };
 
-  if (user) {
-    // navigate(from, { replace: true });
+  if (token) {
+    navigate(from, { replace: true });
   }
 
   const handleResetPassword = async () => {

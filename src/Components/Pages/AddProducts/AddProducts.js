@@ -1,12 +1,18 @@
 import { async } from "@firebase/util";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import auth from "../../Hooks/FIrebase/Firebase";
+import useMyItems from "../../Hooks/useMyItems";
 import "./AddProducts.css";
 
 const AddProducts = () => {
+  const [user] = useAuthState(auth);
   const [products, setProducts] = useState([]);
+  const [items] = useMyItems(user?.email);
 
   useEffect(() => {
     (async () => {
@@ -32,8 +38,8 @@ const AddProducts = () => {
       "https://floating-wildwood-16493.herokuapp.com/products",
       product
     );
-    console.log(result);
     e.target.reset();
+    toast.success("success", { id: "add-success" });
   };
   return (
     <div>
@@ -45,7 +51,14 @@ const AddProducts = () => {
                 to={"/products"}
                 className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
               >
-                All Products {products.length}
+                All Products{" "}
+                {items.length === 0 ? (
+                  <div class="spinner-border text-primary  text-white " role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  products.length
+                )}
               </Link>
             </p>
 
@@ -54,7 +67,14 @@ const AddProducts = () => {
                 to={"/myitem"}
                 className="text-white fs-5 text-decoration-none hoverCursor w-100 mx-auto"
               >
-                My Products
+                My Products{" "}
+                {items.length === 0 ? (
+                  <div class="spinner-border text-primary  text-white " role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  items.length
+                )}
               </Link>
             </p>
           </div>

@@ -1,3 +1,7 @@
 .myItem-page{
     min-height: 100vh;
 }
+.dashBoard-Spinner{
+    height: 100vh;
+    width: 100%;
+}

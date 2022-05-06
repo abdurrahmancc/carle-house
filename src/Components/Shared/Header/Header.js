@@ -43,6 +43,7 @@ const Header = () => {
                 HOME
               </NavLink>
               <NavLink
+                style={user ? { display: "block" } : { display: "none" }}
                 to={"/products"}
                 className={({ isActive }) =>
                   isActive
@@ -53,6 +54,7 @@ const Header = () => {
                 PRODUCTS
               </NavLink>
               <NavLink
+                style={user ? { display: "block" } : { display: "none" }}
                 to={"/myitem"}
                 className={({ isActive }) =>
                   isActive
@@ -63,6 +65,7 @@ const Header = () => {
                 ITEM
               </NavLink>
               <NavLink
+                style={user ? { display: "block" } : { display: "none" }}
                 to={"/addproducts"}
                 className={({ isActive }) =>
                   isActive

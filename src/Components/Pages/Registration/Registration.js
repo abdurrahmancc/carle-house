@@ -15,6 +15,7 @@ import { sendEmailVerification } from "firebase/auth";
 import Loading from "../Loading/Loading";
 import { async } from "@firebase/util";
 import logo from "../../../img/logo-3.png";
+import useToken from "../../Hooks/UseToken";
 
 const Registration = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -29,7 +30,7 @@ const Registration = () => {
   const [generalError, setGeneralError] = useState("");
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const [displayName, setDisplayName] = useState("");
-
+  const [token] = useToken(user);
   let navigate = useNavigate();
   let location = useLocation();
 
@@ -134,7 +135,7 @@ const Registration = () => {
   }
 
   const from = location.state?.from?.pathname || "/";
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
   console.log(email.value);

@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./Blog.css";
 const Blog = () => {
   return (
-    <div>
-      <h1>this is our services</h1>
+    <div className="blog-page">
+      <h1>this is our blog</h1>
     </div>
   );
 };
