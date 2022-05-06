@@ -9,6 +9,22 @@ const Banner = () => {
     <div>
       <Carousel>
         <Carousel.Item interval={500000}>
+          <img
+            style={{ height: "100vh" }}
+            className="d-block w-100"
+            src="http://tk-themes.net/html-pearle/carle/images/background/bg.jpg"
+            alt="First slide"
+          />
+          <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5">
+            <p className="bg-transparents bannerText-1 px-4 py-3 fw-bold mb-md-4">
+              EVERYONE WILL ENVY YOUR!
+            </p>
+            <p className=" bg-transparents px-4 bannerText-2 py-3 primaryColor fw-bold mb-md-5">
+              AMAZING EXPLODED VIEWS OF CLASSIC CARS
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={500000}>
           <img style={{ height: "100vh" }} className="d-block w-100" src={img1} alt="First slide" />
           <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5">
             <p className="bg-transparents bannerText-1 px-4 py-3 fw-bold mb-md-4">
