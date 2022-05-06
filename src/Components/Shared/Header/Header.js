@@ -26,7 +26,7 @@ const Header = () => {
         expand="lg"
       >
         <Container>
-          <NavLink to={"/home"}>
+          <NavLink to={"/"}>
             <img src={logo} alt="" />
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
