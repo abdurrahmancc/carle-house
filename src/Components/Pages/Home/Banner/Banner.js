@@ -3,12 +3,61 @@ import { Carousel } from "react-bootstrap";
 import img1 from "../../../../img/baner/car.jpg";
 import img2 from "../../../../img/baner/revo_bg.jpg";
 import img3 from "../../../../img/baner/banner-1.jpg";
+import animate from "../../../../img/baner/animate.gif";
+import banner4 from "../../../../img/baner/banner-4.webp";
+import banner5 from "../../../../img/baner/banner-5.webp";
+import video from "../../../../img/baner/video.mp4";
+import video2 from "../../../../img/baner/video2.mp4";
 import "./Banner.css";
 
 const Banner = () => {
   return (
     <div>
       <Carousel>
+        <Carousel.Item interval={500000}>
+          <video
+            style={{ height: "100vh", objectFit: "cover" }}
+            className="videoTag w-100"
+            autoPlay
+            loop
+            muted
+          >
+            <source src={video} type="video/mp4" />
+          </video>
+          <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5"></Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={500000}>
+          <video
+            style={{ height: "100vh", objectFit: "cover" }}
+            className="videoTag w-100"
+            autoPlay
+            loop
+            muted
+          >
+            <source src={video2} type="video/mp4" />
+          </video>
+          <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5"></Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item interval={500000}>
+          <img
+            style={{ height: "100vh" }}
+            className="d-block w-100"
+            src={banner4}
+            alt="First slide"
+          />
+          <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5"></Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item interval={500000}>
+          <img
+            style={{ height: "100vh" }}
+            className="d-block w-100"
+            src={animate}
+            alt="First slide"
+          />
+          <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5"></Carousel.Caption>
+        </Carousel.Item>
         <Carousel.Item interval={500000}>
           <img style={{ height: "100vh" }} className="d-block w-100" src={img3} alt="First slide" />
           <Carousel.Caption className="d-flex  flex-column align-items-center mb-md-5">

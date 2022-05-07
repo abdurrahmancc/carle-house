@@ -141,7 +141,7 @@ const AddProducts = () => {
                     </div>
                     <div className="mb-3">
                       <label htmlFor="ProductsURL" className="form-label mb-0">
-                        Products URL
+                        Image URL
                       </label>
                       <input
                         type="text"
