@@ -16,6 +16,9 @@
     .bannerText-2{
         font-size: 32px;
     }
+    .hightMax{
+        height: 100vh;
+    }
   }
 @media screen  and (min-width: 992px) and (max-width: 1099px) {
     .bannerText-1{
@@ -23,6 +26,9 @@
     }
     .bannerText-2{
         font-size: 28px;
+    }
+    .hightMax{
+        height: 100vh;
     }
   }
 @media screen  and (min-width: 772px) and (max-width: 991px) {
@@ -32,6 +38,9 @@
     .bannerText-2{
         font-size: 22px;
     }
+    .hightMax{
+        height: 100vh;
+    }
   }
 @media screen  and (min-width: 576px)  and (max-width: 771px){
     .bannerText-1{
@@ -40,12 +49,18 @@
     .bannerText-2{
         font-size: 22px;
     }
+    .hightMax{
+        height: 50vh;
+    }
   }
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
     .productsImg {
         max-height: 150px;
         object-fit: cover;
+    }
+    .hightMax{
+        height: 100vh;
     }
   }
 @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -56,6 +71,9 @@
     .productsItem{
         max-width: 600px;
 
+    }
+    .hightMax{
+        height: 100vh;
     }
     
   }

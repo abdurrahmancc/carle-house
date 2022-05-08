@@ -44,7 +44,7 @@ const MyItem = () => {
     <div className="myItem-page">
       <div>
         <div className="row">
-          <div className="col-md-2 sticky-top sideBer-bg">
+          <div className="col-md-2 hightMax sticky-top sideBer-bg">
             <div className="ms-4 mt-5">
               <p className="text-white fs-5 hoverCursor w-100 mx-auto">
                 <Link
@@ -76,7 +76,7 @@ const MyItem = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-10 dashBordBody">
+          <div className="col-md-10 hightMax dashBordBody">
             {items.length === 0 ? (
               <div className="dashBoard-Spinner d-flex justify-content-center align-items-center">
                 <div class="spinner-border text-primary mt-5 text-white" role="status">
