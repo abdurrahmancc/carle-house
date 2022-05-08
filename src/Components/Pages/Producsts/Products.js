@@ -90,7 +90,13 @@ const Products = () => {
                 <tbody>
                   {products.map((product) => {
                     return (
-                      <tr key={product._id} className="tableROw ">
+                      <tr
+                        data-aos="flip-up"
+                        data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000"
+                        key={product._id}
+                        className="tableROw "
+                      >
                         <th style={{ maxWidth: "100px" }} className="ps-4" scope="row">
                           {product?.name}
                         </th>

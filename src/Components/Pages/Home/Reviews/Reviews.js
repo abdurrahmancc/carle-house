@@ -37,7 +37,12 @@ const Reviews = () => {
             {" "}
             <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_1} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Liam</h5>
@@ -50,7 +55,12 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_2} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Noah</h5>
@@ -63,7 +73,12 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_3} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Oliver</h5>
@@ -80,7 +95,12 @@ const Reviews = () => {
             {" "}
             <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_4} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">William</h5>
@@ -92,7 +112,12 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_5} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">James</h5>
@@ -104,7 +129,12 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_6} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Benjamin</h5>
@@ -121,7 +151,12 @@ const Reviews = () => {
             {" "}
             <div className="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
               <div className="col">
-                <div className="card shadow  mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow  mx-auto w-100 h-100"
+                >
                   <img src={man_7} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Lucas</h5>
@@ -133,7 +168,12 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_8} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Alexander </h5>
@@ -145,7 +185,12 @@ const Reviews = () => {
                 </div>
               </div>
               <div className="col">
-                <div className="card shadow mx-auto w-100 h-100">
+                <div
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="card shadow mx-auto w-100 h-100"
+                >
                   <img src={man_9} className="img-size" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Jackson </h5>

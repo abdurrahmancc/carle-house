@@ -17,8 +17,16 @@ import AddProducts from "./Components/Pages/AddProducts/AddProducts";
 import Inventory from "./Components/Pages/Inventory/Inventory";
 import Blog from "./Components/Pages/Blog/Blog";
 import MyItem from "./Components/Pages/MyItem/MyItem";
+import About from "./Components/Pages/About/About";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="rootPage">
       <Header></Header>
@@ -59,6 +67,7 @@ function App() {
           }
         ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/register" element={<Register2></Register2>}></Route>

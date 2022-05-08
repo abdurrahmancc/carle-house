@@ -87,7 +87,7 @@ const MyItem = () => {
               <div className="p-5">
                 <table className="table  table-bg text-white">
                   <thead>
-                    <tr className="">
+                    <tr>
                       <th className="pt-4 ps-4" scope="col">
                         Name
                       </th>
@@ -104,7 +104,13 @@ const MyItem = () => {
                   <tbody>
                     {items.map((item) => {
                       return (
-                        <tr key={item._id} className="tableROw ">
+                        <tr
+                          data-aos="flip-up"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
+                          key={item._id}
+                          className="tableROw "
+                        >
                           <th style={{ maxWidth: "100px" }} className="ps-4" scope="row">
                             {item?.name}
                           </th>

@@ -6,6 +6,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import auth from "../../Hooks/FIrebase/Firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
+import { FaUserCircle } from "react-icons/fa";
+// import emptyUser from "../../../img";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -31,7 +33,7 @@ const Header = () => {
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto  ">
+            <Nav className="ms-auto  d-flex align-items-center">
               <NavLink
                 to={"/home"}
                 className={({ isActive }) =>
@@ -85,6 +87,16 @@ const Header = () => {
               >
                 BLOG
               </NavLink>
+              <NavLink
+                to={"/about"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary fw-bold mx-2 text-decoration-none pb-1 border-2 border-bottom border-primary"
+                    : " text-black fw-bold mx-2 text-decoration-none"
+                }
+              >
+                ABOUT
+              </NavLink>
               {user ? (
                 <span
                   onClick={() => signOut(auth)}
@@ -104,6 +116,18 @@ const Header = () => {
                   LOGIN
                 </NavLink>
               )}
+              <div className="">
+                {user?.photoURL ? (
+                  <img
+                    width={"40px"}
+                    className="rounded-circle border-white border ms-2 border-2"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                ) : (
+                  <FaUserCircle className="text-black ms-2 fs-3" />
+                )}
+              </div>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -30,7 +30,13 @@ const OurProducts = () => {
               products.map((product) => {
                 return (
                   <div key={product._id} className="col ">
-                    <div style={{ width: "17rem" }} className="card rounded-Card shadow-sm ">
+                    <div
+                      style={{ width: "17rem" }}
+                      data-aos="zoom-in"
+                      data-aos-easing="ease-out-cubic"
+                      data-aos-duration="2000"
+                      className="card rounded-Card shadow-sm "
+                    >
                       <img src={product?.img} className="productsImg" alt="..." />
                       <div className="card-body">
                         <h5 className="card-title">{product.name}</h5>
