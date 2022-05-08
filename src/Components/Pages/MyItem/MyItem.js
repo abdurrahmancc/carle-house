@@ -44,7 +44,7 @@ const MyItem = () => {
     <div className="myItem-page">
       <div>
         <div className="row">
-          <div style={{ height: "100vh" }} className="col-md-2 sticky-top sideBer-bg">
+          <div className="col-md-2 sticky-top sideBer-bg">
             <div className="ms-4 mt-5">
               <p className="text-white fs-5 hoverCursor w-100 mx-auto">
                 <Link

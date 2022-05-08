@@ -44,7 +44,7 @@ const AddProducts = () => {
   return (
     <div>
       <div style={{ zIndex: 0 }} className="row">
-        <div style={{ height: "100vh" }} className="col-md-2 sideBer-bg sticky-top">
+        <div className="col-md-2 sideBer-bg sticky-top">
           <div className="ms-4 mt-5">
             <p className="text-white fs-5 hoverCursor w-100 mx-auto">
               <Link
@@ -81,7 +81,7 @@ const AddProducts = () => {
         </div>
         <div className="col-md-10 dashBordBody">
           <div className="p-5">
-            <div style={{ minHeight: "90vh" }} className="container  mb-5">
+            <div style={{ minHeight: "100vh" }} className="container  mb-5">
               <div className=" mx-auto w-50">
                 <div className="bg-white p-5">
                   <h3 className="text-center registerTextColor pb-2 fw-bold">ADD YOUR PRODUCT</h3>
