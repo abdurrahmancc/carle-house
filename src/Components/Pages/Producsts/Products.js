@@ -24,21 +24,10 @@ const Products = () => {
     })();
   }, [deleteResult]);
 
-  /*   //handle Delete
-  const handleDelete = async (_id) => {
-    console.log(_id);
-    const proceed = window.confirm("Are you sure want to delete?");
-    if (proceed) {
-      const url = `https://floating-wildwood-16493.herokuapp.com/product/${_id}`;
-      const result = await axios.delete(url);
-      console.log(result);
-    }
-  }; */
-  // console.log(products);
   return (
-    <div>
+    <>
       <div className="row">
-        <div style={{ height: "100vh" }} className="col-md-2 sticky-top sideBer-bg">
+        <div className="col-md-2 sticky-top sideBer-bg">
           <div className="ms-4 mt-5">
             <p className="text-white fs-5 hoverCursor w-100 mx-auto">
               All Products{" "}
@@ -121,13 +110,12 @@ const Products = () => {
                     );
                   })}
                 </tbody>
-                {/* <p className="pb-2 border-top-0"></p> */}
               </table>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

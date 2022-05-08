@@ -7,7 +7,7 @@ import EmailVerification from "./EmailVerification";
 
 const RequireAuth = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
-  let location = useLocation();
+  const location = useLocation();
 
   if (loading) {
     return <Loading></Loading>;

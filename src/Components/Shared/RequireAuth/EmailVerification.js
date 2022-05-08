@@ -8,7 +8,7 @@ const EmailVerification = () => {
   console.log(user);
   const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
   return (
-    <div style={{ height: "90vh" }} className="container">
+    <div style={{ height: "100vh" }} className="container">
       <div className="d-flex h-100 align-items-center text-center justify-content-center">
         <div>
           <h3>Please Email Verification</h3>

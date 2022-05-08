@@ -13,7 +13,7 @@ const Footer = () => {
           ? { display: "none" }
           : { display: "block" }
       }
-      className="py-3 footer-color text-white text-center"
+      className="py-3 footer-color text-white text-center w-100"
     >
       CopyRight &copy; {new Date().getFullYear()} Abdur Rahman
     </div>
